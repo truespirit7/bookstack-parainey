@@ -105,7 +105,7 @@ return [
 
     // Shelves
     'shelf' => 'Полка',
-    'shelves' => 'Полки',
+    'shelves' => 'Разделы',
     'x_shelves' => ':count полка|:count полки|:count полок',
     'shelves_empty' => 'Полки не созданы',
     'shelves_create' => 'Создать новую полку',
