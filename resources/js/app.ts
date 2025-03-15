@@ -21,3 +21,4 @@ window.$trans = new Translator();
 window.$components = new ComponentStore();
 window.$components.register(componentMap);
 window.$components.init();
+

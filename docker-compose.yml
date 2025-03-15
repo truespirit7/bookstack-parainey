@@ -11,10 +11,9 @@ services:
       MYSQL_DATABASE: bookstack-dev
       MYSQL_USER: bookstack-test
       MYSQL_PASSWORD: bookstack-test
-      MYSQL_RANDOM_ROOT_PASSWORD: 'false'
-    
+      MYSQL_RANDOM_ROOT_PASSWORD: 'true'
     ports:
-    - 3306:3306        
+      - 3306:3306    
     volumes:
       - ./dev/docker/init.db:/docker-entrypoint-initdb.d
       - db:/var/lib/mysql
@@ -39,7 +38,7 @@ services:
     volumes:
       - ./:/app
       - ./dev/docker/php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-    # entrypoint: /app/dev/docker/entrypoint.app.sh
+    entrypoint: /app/dev/docker/entrypoint.app.sh
     extra_hosts:
     - "host.docker.internal:host-gateway"
   node:
@@ -48,7 +47,7 @@ services:
     user: node
     volumes:
       - ./:/app
-    # entrypoint: /app/dev/docker/entrypoint.node.sh
+    entrypoint: /app/dev/docker/entrypoint.node.sh
   mailhog:
     image: mailhog/mailhog
     ports:
