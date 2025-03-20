@@ -9543,6 +9543,17 @@ var ComponentStore = class {
 
 // resources/js/app.ts
 window.__DEV__ = false;
+function loadCDNScript(url) {
+  const script = document.createElement("script");
+  script.src = url;
+  script.async = true;
+  document.head.appendChild(script);
+  return new Promise((resolve, reject) => {
+    script.onload = resolve;
+    script.onerror = reject;
+  });
+}
+loadCDNScript("https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js").then(() => console.log("\u0421\u043A\u0440\u0438\u043F\u0442 \u0437\u0430\u0433\u0440\u0443\u0436\u0435\u043D")).catch((error) => console.error("\u041E\u0448\u0438\u0431\u043A\u0430 \u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0438:", error));
 window.baseUrl = baseUrl;
 window.importVersioned = importVersioned;
 window.$http = new HttpManager();
